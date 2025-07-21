@@ -67,19 +67,13 @@ const getAmounts = async () => {
 	})
 
 	const { amount0: amount0Desired, amount1: amount1Desired } = position.mintAmounts
-
-	console.log('mintAmounts', amount0Desired.toString(), amount1Desired.toString())
-
 	const { amount0: amount0Back, amount1: amount1Back } = position.burnAmountsWithSlippage(new Percent(1, 10000))
-	console.log('burnAmountsWithSlippage', amount0Back.toString(), amount1Back.toString())
-
 	const { amount0: amount0Back1, amount1: amount1Back1 } = position.burnAmountsWithSlippage(new Percent(0, 10000))
-	console.log('burnAmountsWithSlippage1', amount0Back1.toString(), amount1Back1.toString())
 
 	const amount0 = position.amount0
 	const amount1 = position.amount1
-	console.log('amount0, amount1', amount0, amount1)
-	console.log('balance amount0, amount1', amount0.numerator.toString(), amount1.numerator.toString())
+	console.log('usdc balance amount0', amount0.numerator.toString())
+	console.log('usdt balance amount1', amount1.numerator.toString())
 
 	process.exit();
 }
